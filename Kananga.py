@@ -24,7 +24,7 @@ class Kananga:
         self.videos = []
         thread.start_new_thread(self._load_videos, ())
 
-    def _load_videos, ():
+    def _load_videos(self):
         for root, dirs, files in os.walk(video_dir):
             for item in files:
                 # Get the file extension, e.g. 'mp3' or 'flac', and see if it's in
