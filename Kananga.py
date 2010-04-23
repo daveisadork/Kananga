@@ -80,7 +80,7 @@ def transcode(path, width=None, height=None):
     else:
         scale = ''
     print "Transcoding", path
-    transcoder = gst.parse_launch("filesrc name=source ! decodebin2 name=decoder ! audioconvert ! faac ! flvmux name=muxer ! appsink name=output decoder. ! ffmpegcolorspace %s! x264enc ! muxer." % scale) 
+    transcoder = gst.parse_launch("filesrc name=source ! decodebin2 name=decoder ! audioconvert ! faac ! flvmux name=muxer ! appsink name=output decoder. ! ffmpegcolorspace %s! x264enc ! muxer." % scale)
     source = transcoder.get_by_name('source')
     source.set_property("location", path)
     output = transcoder.get_by_name('output')
@@ -118,10 +118,11 @@ pipeline = {
 }
 
 if __name__ == '__main__':
-    
+
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
-        'tools.encode.on':True, 
+        'server.socket_port': '8082',
+        'tools.encode.on':True,
         'tools.encode.encoding':'utf-8'
         })
 
@@ -132,6 +133,6 @@ if __name__ == '__main__':
         }
     if not os.path.isdir(os.path.join(program_dir, 'cache')):
         os.mkdir(os.path.join(program_dir, 'cache'))
-    cherrypy.quickstart(Kananga(), '/sabnzbd/', config=conf)
+    cherrypy.quickstart(Kananga(), '', config=conf)
 
 
