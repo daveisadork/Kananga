@@ -109,16 +109,7 @@ def get_resolution(path):
             break
 
 
-#decodebin2 name=decoder ! audioconvert ! faac ! flvmux name=muxer ! filesink location=test.flv decoder. ! ffmpegcolorspace ! x264enc ! muxer.
-
-#decodebin2 name=decoder ! audioconvert ! vorbisenc ! oggmux name=muxer ! appsink name=output decoder. ! theoraenc ! muxer.
-pipeline = {
-    'mp3': "filesrc name=source ! decodebin ! audioconvert ! lamemp3enc name=encoder ! id3v2mux ! appsink name=output",
-    'ogg': "filesrc name=source ! decodebin ! audioconvert ! vorbisenc name=encoder ! oggmux ! appsink name=output"
-}
-
-if __name__ == '__main__':
-
+def start():
     cherrypy.config.update({
         'server.socket_host': '0.0.0.0',
         'server.socket_port': 8082,
@@ -136,3 +127,5 @@ if __name__ == '__main__':
     cherrypy.quickstart(Kananga(), '', config=conf)
 
 
+if __name__ == '__main__':
+    start()
