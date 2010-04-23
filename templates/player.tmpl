@@ -1,0 +1,19 @@
+<!doctype html> 
+<html> 
+    <head> 
+        <title>Video Test</title> 
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+        <script type="text/javascript" src="assets/flowplayer-3.1.4.min.js"></script>
+<!--        <script type="text/javascript" src="assets/blofeld.js"></script>-->
+<!--        <link rel="stylesheet" href="assets/blofeld.css" type="text/css">-->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+    </head> 
+    <body> 
+        <a href="video?index=$index%26width=$width%26height=$height" 
+            style="display:block;width:${width}px;height:${height}px"  
+            id="player"></a>
+        <script> 
+            flowplayer("player", "assets/flowplayer-3.1.5.swf"); 
+        </script>
+    </body>
+</html>
