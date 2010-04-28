@@ -1,18 +1,30 @@
 <!doctype html> 
 <html> 
     <head> 
-        <title>Video Test</title> 
+        <title>Kananga: $meta['name']</title> 
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
         <script type="text/javascript" src="assets/flowplayer-3.1.4.min.js"></script>
+        <link rel="stylesheet" href="assets/style.css" type="text/css"> 
     </head> 
-    <body> 
-        <a href="video?index=$index%26width=$width%26height=$height" 
-            style="display:block;width:${width}px;height:${player_h}px"  
-            id="player"></a>
+    <body>
+        <h1>$meta['name']</h1>
+        <div id="container">
+            <p>
+                <a href="video?index=$index%26quality=$quality" 
+                    style="display:block;width:${width}px;height:${player_h}px"  
+                    id="player"></a>
+            </p>
+        </div>
+        <ul>
+            <li>Resolution: $meta['quality'] (${meta['resolution'][0]}x${meta['resolution'][1]})</li>
+            <li>Aspect Ratio: $meta['aspect']</li>
+            <li>Frame Rate: $meta['framerate'] FPS</li>
+            <li>File Extension: $meta['extension']</li>
+        </ul>
         <script> 
             flowplayer("player", "assets/flowplayer-3.1.5.swf", { 
                     clip:  { 
-                                url: 'video?index=$index%26width=$width%26height=$height',
+                                url: 'video?index=$index%26quality=$quality',
                                 autoPlay: false, 
                                 autoBuffering: true,
                                 scaling: 'fit' 

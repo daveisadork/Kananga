@@ -1,14 +1,19 @@
 <!doctype html> 
 <html> 
     <head> 
-        <title>Video Test</title> 
+        <title>Kananga</title> 
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+        <link rel="stylesheet" href="assets/style.css" type="text/css"> 
     </head> 
     <body> 
-        <list>
+        <h1>Kananga</h1>
+        <ul>
 #for $video in $videos
-            <li><a href="player?index=$videos.index($video)">$video['name']</a></li>
+            <li>$video['name']</li>
+            <ul>
+                <li>[ <a href="player?index=$videos.index($video)&quality=low">Low</a> | <a href="player?index=$videos.index($video)&quality=med">Med</a> | <a href="player?index=$videos.index($video)&quality=hi">High</a> | <a href="player?index=$videos.index($video)&quality=hd">HD</a> ] ($video['quality'], $video['aspect'], $video['extension'])</li>
+            </ul>
 #end for
-        </list>
+        </ul>
     </body>
 </html>
